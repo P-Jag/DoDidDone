@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:do_did_done/widgets/tasks_list.dart';
 import 'package:do_did_done/screens/add_task_screen.dart';
 import 'package:do_did_done/constants.dart';
+import 'package:do_did_done/modules/task_data.dart';
+import 'package:provider/provider.dart';
 
-class TaskScreen extends StatefulWidget {
-  @override
-  _TaskScreenState createState() => _TaskScreenState();
-}
-
-class _TaskScreenState extends State<TaskScreen> {
+class TaskScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +63,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   ),
                 ),
                 Text(
-                  '12 tasks left',
+                  '${Provider.of<TaskData>(context).taskCount} tasks left',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
